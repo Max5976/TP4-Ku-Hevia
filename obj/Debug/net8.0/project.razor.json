@@ -19334,6 +19334,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "z:\\2025\\programacion\\TP4-Ku-Hevia\\Views\\Home\\JuegoAhorcado.cshtml",
+      "TargetPath": "Views\\Home\\JuegoAhorcado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "z:\\2025\\programacion\\TP4-Ku-Hevia\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
