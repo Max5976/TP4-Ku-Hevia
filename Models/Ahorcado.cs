@@ -1,8 +1,9 @@
-static class ahorcado {
+public static class Ahorcado {
 
-    static List<string> palabras {get; set;}
+    public static List<string> palabras {get; set;}
+    public static int intentos {get; set;}
 
-    static void inicializarVariable() 
+    private static void inicializarVariable() 
     {
         palabras.Add("programacion");
         palabras.Add("java");
@@ -25,5 +26,15 @@ static class ahorcado {
         palabras.Add("framework");
         palabras.Add("algoritmos");
         palabras.Add("código");
+    }
+
+    public static string comenzarJuego() 
+    {
+        inicializarVariable();
+        Random rd = new Random();
+        int rand_num = rd.Next(palabras.Count - 1);
+        string palabraElegida = palabras[rand_num];
+        intentos = 0;
+        return palabraElegida;
     }
 }

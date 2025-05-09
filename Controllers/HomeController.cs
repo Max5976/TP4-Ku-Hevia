@@ -17,4 +17,17 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult JuegoAhorcado() 
+    {
+        ViewBag.palabra = Ahorcado.comenzarJuego();
+        return View();
+    }
+    public IActionResult ArriesgarPalabra(string palabra) 
+    {
+        return View("JuegoAhorcado");
+    }
+    public IActionResult ArriesgarLetra(char letra) 
+    {
+        return View("JuegoAhorcado");
+    }
 }

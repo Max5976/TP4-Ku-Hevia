@@ -1,0 +1,17 @@
+@{
+    ViewData["Titulo"] = "JuegoAhorcado";
+}
+
+<h1>@palabras.random</h1>
+
+<div>
+    <form action='@Url.Action("ArriesgarPalabra")' method="get">
+    <input type="text" name="palabra"/>
+    <input type="button" placeholder="Confirmar"/>
+    </form>
+
+    <form action='@Url.Action("ArriesgarLetra")' method="get">
+    <input type="text" name="letra" maxlength="1"/>
+    <input type="button" placeholder="Confirmar"/>
+    </form>
+</div>
