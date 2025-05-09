@@ -2,6 +2,7 @@ public static class Ahorcado {
 
     public static List<string> palabras {get; set;}
     public static int intentos {get; set;}
+    public static string palabraElegida {get; set;}
 
     private static void inicializarVariable() 
     {
@@ -28,13 +29,21 @@ public static class Ahorcado {
         palabras.Add("código");
     }
 
-    public static string comenzarJuego() 
+    public static void comenzarJuego() 
     {
         inicializarVariable();
         Random rd = new Random();
         int rand_num = rd.Next(palabras.Count - 1);
-        string palabraElegida = palabras[rand_num];
+        palabraElegida = palabras[rand_num];
         intentos = 0;
-        return palabraElegida;
+    }
+    public static string guionizar(string palabra)
+    {
+        string guiones = null;
+        foreach(char letra in palabra)
+        {
+            guiones += "_";
+        }
+        return guiones;
     }
 }

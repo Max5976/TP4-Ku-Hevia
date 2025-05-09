@@ -2,7 +2,8 @@
     ViewData["Titulo"] = "JuegoAhorcado";
 }
 
-<h1>@palabras.random</h1>
+<h1>@ViewBag.palabra.guionizar()</h1>
+<h2>Intentos: @ViewBag.intentos</h2>
 
 <div>
     <form action='@Url.Action("ArriesgarPalabra")' method="get">
