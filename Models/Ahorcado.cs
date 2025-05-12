@@ -1,8 +1,10 @@
 public static class Ahorcado {
 
-    public static List<string> palabras {get; set;}
+    public static List<string> palabras {get; set;} = new List<string>();
     public static int intentos {get; set;}
     public static string palabraElegida {get; set;}
+    public static List<char> letrasUtilizadas{get; set;} = new List<char>();
+    public static List<char> letrasCorrectas{get; set;} = new List<char>();
 
     private static void inicializarVariable() 
     {
@@ -42,7 +44,17 @@ public static class Ahorcado {
         string guiones = null;
         foreach(char letra in palabra)
         {
-            guiones += "_";
+            foreach(char letra2 in letrasCorrectas) 
+            {
+                if(letra2 == letra)
+                {
+                    guiones += letra2; 
+                }
+                else
+                {
+                    guiones += "_";
+                }
+            }
         }
         return guiones;
     }

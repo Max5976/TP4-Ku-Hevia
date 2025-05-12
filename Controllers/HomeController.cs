@@ -19,11 +19,11 @@ public class HomeController : Controller
     }
     public IActionResult JuegoAhorcado() 
     {
+        Ahorcado.comenzarJuego();
         ViewBag.palabra = Ahorcado.palabraElegida;
-        ViewBag.intentos = Ahorcado.intentos;
         return View();
     }
-    public IActionResult ArriesgarPalabra(string palabra, int intentos) 
+    public IActionResult ArriesgarPalabra(string palabra) 
     {
         bool esLaPalabra = false;
         if(palabra == Ahorcado.palabraElegida) 
@@ -34,22 +34,20 @@ public class HomeController : Controller
         {
             esLaPalabra = false;
         }
-        intentos++;
+        Ahorcado.intentos++;
         return View("JuegoAhorcado");
     }
-    public IActionResult ArriesgarLetra(char letra, int intentos) 
+    public IActionResult ArriesgarLetra(char letra) 
     {
-        Dictionary<int, char> caracteres = new Dictionary<int, char>();
-        int i = 0;
         foreach(char caracter in Ahorcado.palabraElegida)
         {
             if(caracter == letra)
             {
-                caracteres.Add(i, letra);
+                Ahorcado.letrasCorrectas.Add(letra);
             }
-            i++;
         }
-        intentos++;
+        Ahorcado.intentos++;
+        Ahorcado.letrasUtilizadas.Add(letra);
         return View("JuegoAhorcado");
     }
 }
