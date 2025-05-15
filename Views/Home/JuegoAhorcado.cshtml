@@ -1,10 +1,14 @@
 @{
-    ViewData["Titulo"] = "JuegoAhorcado";
+    ViewData["Title"] = "JuegoAhorcado";
 }
 
-<h1>@Ahorcado.guionizar(ViewBag.palabra)</h1>
+<h1>@Ahorcado.guionizar(Ahorcado.palabraElegida)</h1>
 <h2>Intentos: @Ahorcado.intentos</h2>
-<h2>Letras Utilizadas: @foreach(int letra in Ahorcado.letrasUtilizadas){<p>@letra</p>}</h2>
+<h2>Letras Utilizadas:</h2>
+@foreach(char letra in Ahorcado.letrasUtilizadas)
+{
+    <p>@letra</p>
+}
 
 <div>
     <form action='@Url.Action("ArriesgarPalabra")' method="get">
@@ -13,7 +17,7 @@
     </form>
 
     <form action='@Url.Action("ArriesgarLetra")' method="get">
-    <input type="text" name="letra" maxlength="1"/>
+    <input type="text" name="letraString" maxlength="1"/>
     <input type="submit" value="Arriesgar Letra"/>
     </form>
 </div>

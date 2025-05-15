@@ -1,8 +1,9 @@
+namespace TP4_Ku_Hevia.Models;
 public static class Ahorcado {
 
     public static List<string> palabras {get; set;} = new List<string>();
     public static int intentos {get; set;}
-    public static string palabraElegida {get; set;}
+    public static string palabraElegida {get; set;} = "";
     public static List<char> letrasUtilizadas{get; set;} = new List<char>();
     public static List<char> letrasCorrectas{get; set;} = new List<char>();
 
@@ -35,25 +36,24 @@ public static class Ahorcado {
     {
         inicializarVariable();
         Random rd = new Random();
-        int rand_num = rd.Next(palabras.Count - 1);
+        int rand_num = rd.Next(palabras.Count);
         palabraElegida = palabras[rand_num];
+        Console.WriteLine(palabraElegida);
         intentos = 0;
     }
     public static string guionizar(string palabra)
     {
-        string guiones = null;
+        string guiones = ""; 
+            
         foreach(char letra in palabra)
         {
-            foreach(char letra2 in letrasCorrectas) 
+            if (letrasCorrectas.Contains(letra)) 
             {
-                if(letra2 == letra)
-                {
-                    guiones += letra2; 
-                }
-                else
-                {
-                    guiones += "_";
-                }
+                guiones += letra;
+            }
+            else
+            {
+                guiones += "_";
             }
         }
         return guiones;

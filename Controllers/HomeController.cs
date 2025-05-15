@@ -15,30 +15,23 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Ahorcado.comenzarJuego();
         return View();
+        
     }
     public IActionResult JuegoAhorcado() 
     {
-        Ahorcado.comenzarJuego();
-        ViewBag.palabra = Ahorcado.palabraElegida;
         return View();
     }
     public IActionResult ArriesgarPalabra(string palabra) 
     {
-        bool esLaPalabra = false;
-        if(palabra == Ahorcado.palabraElegida) 
-        {
-            esLaPalabra = true;
-        }
-        else 
-        {
-            esLaPalabra = false;
-        }
         Ahorcado.intentos++;
         return View("JuegoAhorcado");
     }
-    public IActionResult ArriesgarLetra(char letra) 
+    public IActionResult ArriesgarLetra(string letraString) 
     {
+        char letra = letraString[0];
+
         foreach(char caracter in Ahorcado.palabraElegida)
         {
             if(caracter == letra)
