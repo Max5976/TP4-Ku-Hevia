@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>¡Felicidades, Ganaste!</h1>
+<p>Has adivinado la palabra: @Ahorcado.palabraElegida</p>
+<p>Has utilizado @Ahorcado.intentos intentos</p>
+<p>Has utilizado las letras:</p>
+@foreach(char letra in Ahorcado.letrasUtilizadas)
+{
+    <p>@letra</p>
+}
+<a href='@Url.Action("Index")'>
+    <input type="button" value="Volver al inicio">
+</a>
