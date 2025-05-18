@@ -85,17 +85,6 @@ input[type="submit"] {
     width: 40%;
 }
 
-input[type="submit"] button {
-    background: #558b2f;
-    color: #f9fbe7;
-    border: none;
-    border-radius: 8px;
-    padding: 2% 6%;
-    font-size: 110%;
-    width: 45%;
-    font-weight: bold; 
-}
-
 footer {
     background-color: #26a69a;
     color: #f9fbe7;
