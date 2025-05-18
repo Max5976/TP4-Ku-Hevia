@@ -55,3 +55,4 @@ C:\Users\Welcome\Downloads\TP4-Ku-Hevia-master\obj\Debug\net8.0\refint\TP4-Ku-He
 C:\Users\Welcome\Downloads\TP4-Ku-Hevia-master\obj\Debug\net8.0\TP4-Ku-Hevia.pdb
 C:\Users\Welcome\Downloads\TP4-Ku-Hevia-master\obj\Debug\net8.0\TP4-Ku-Hevia.genruntimeconfig.cache
 C:\Users\Welcome\Downloads\TP4-Ku-Hevia-master\obj\Debug\net8.0\ref\TP4-Ku-Hevia.dll
+C:\Users\Welcome\Downloads\TP4-Ku-Hevia-master\obj\Debug\net8.0\TP4-Ku-Hevia.sourcelink.json

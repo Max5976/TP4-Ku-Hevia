@@ -40,6 +40,8 @@ public static class Ahorcado {
         palabraElegida = palabras[rand_num];
         Console.WriteLine(palabraElegida);
         intentos = 0;
+        letrasUtilizadas.Clear();
+        letrasCorrectas.Clear();
     }
     public static string guionizar(string palabra)
     {

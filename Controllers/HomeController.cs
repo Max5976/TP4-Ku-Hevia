@@ -21,10 +21,11 @@ public class HomeController : Controller
     }
     public IActionResult JuegoAhorcado() 
     {
-        if (Ahorcado.letrasUtilizadas.Count == Ahorcado.palabraElegida.Length)
-        {
+        string guiones = Ahorcado.guionizar(Ahorcado.palabraElegida);
+        if (!guiones.Contains("_"))
+        {   
             return View("Ganar");
-        }
+        }   
         else if (Ahorcado.intentos == 6)
         {
             return View("Perder");
@@ -35,15 +36,15 @@ public class HomeController : Controller
     {
         if (string.IsNullOrEmpty(palabra) || palabra.ToLower() != Ahorcado.palabraElegida)
         {
+            Ahorcado.intentos++;
             return View("Perder");
         }
         else if (palabra.ToLower() == Ahorcado.palabraElegida)
         {
-            return View("Ganador");
+            return View("Ganar");
         }
-        else 
-        { 
-            Ahorcado.intentos++;
+        else
+        {
             return RedirectToAction("JuegoAhorcado");
         }
     }
@@ -57,14 +58,15 @@ public class HomeController : Controller
         {
             char letra = char.ToLower(letraString[0]);
 
-            foreach(char caracter in Ahorcado.palabraElegida)
+            if (Ahorcado.palabraElegida.Contains(letra))
             {
-                if(caracter == letra)
-                {
-                    Ahorcado.letrasCorrectas.Add(letra);
-                }
+                Ahorcado.letrasCorrectas.Add(letra);
             }
-            Ahorcado.intentos++;
+            else
+            { 
+                Ahorcado.intentos++;
+            }
+
             Ahorcado.letrasUtilizadas.Add(letra);
             return RedirectToAction("JuegoAhorcado");
         }
